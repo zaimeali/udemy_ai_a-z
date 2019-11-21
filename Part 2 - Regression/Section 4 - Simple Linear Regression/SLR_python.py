@@ -25,3 +25,19 @@ regressor.fit(X_train, y_train)
 # Predicting 
 # create a vector that will contain the prediction values
 y_pred = regressor.predict(X_test)
+
+# Visualizing
+plt.scatter(X_train, y_train, color = 'red')
+plt.plot(X_train, regressor.predict(X_train), color = 'blue')
+plt.title("Salary vs Experience ~ Training Set Result")
+plt.xlabel("Years of Experience")
+plt.ylabel("Salary")
+plt.show()
+
+
+plt.scatter(X_test, y_test, color = 'red')
+plt.plot(X_train, regressor.predict(X_train), color = 'blue') #bcz our model is built on X_train and y_pred is actually to compare it with y_test
+plt.title("Salary vs Experience ~ Test Set Result")
+plt.xlabel("Years of Experience")
+plt.ylabel("Salary")
+plt.show()
