@@ -22,4 +22,6 @@ from sklearn.linear_model import LinearRegression
 regressor = LinearRegression()
 regressor.fit(X_train, y_train)
 
-# Predicting
+# Predicting 
+# create a vector that will contain the prediction values
+y_pred = regressor.predict(X_test)
