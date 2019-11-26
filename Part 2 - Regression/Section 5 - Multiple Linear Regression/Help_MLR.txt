@@ -1,0 +1,59 @@
+# Do not add all the dummy variables
+# D2 = 1 - D1 
+# Always omit one dummmy variable
+# if it has 100 dummy variables include 99
+
+# P-Value: is a statistical measure that helps scientists determine whether or not their hypotheses are correct
+# P Values are used to determine whether the results of their experiment are within the normal range of values for 
+# 	      the events being observed. 
+# Usually, if the P value of a data set is below a certain pre-determined amount (like, for instance, 0.05), 
+# 	scientists will reject the "null hypothesis" of their experiment - in other words, 
+# 	they'll rule out the hypothesis that the variables of their experiment had no meaningful effect on the results
+
+# The p-value is NOT the probability the claim is true.
+# The p-value is NOT the probability the null hypothesis is true.
+
+# Why we need to throwout columns, why we don't use every column in our model
+# 	More Garbage in = More Garbage out
+# 	In the end you have to explain every column (the maths behind) and the result it predict
+
+# 5 Methods of Building Models:
+# 	1) All-in
+# 	2) Backward Elimination
+# 	3) Forward Selection
+# 	4) Bidirectional Elimination
+#	5) Score Comparison
+
+# StepWise Regression : 2 + 3 + 4 Methods Combine
+
+1) All-in: Add all variables
+
+2) Backward Elimination: 
+	1) Select a significance level to stay in the model (e.g SL = 0.05)
+	2) Fit the full model with all possible predictors
+	3) Consider the predictor with the highest P-Value. if P > SL, go to STEP 4, otherwise go to FIN
+	4) Remove the Predictor
+	5) Fit the model without this variable
+	After Step go back to STEP 3
+	FIN => Your Model is Ready
+	
+3) Forward Selection:
+	1) Select the Significance Level to enter the model (e.g SL = 0.05)
+	2) Fit all simple regression model y ~ Xn Select the one with the lowest P-Value
+	3) Keep this variable and fit all possible models with one extra predictor added to the one(s) you already have.
+	4) Consider the predictor with the lowest P-Value. if P < SL, go to STEP 3, otherwise go to FIN
+	
+4) BiDirectional Elimination:
+	1) SLEnter = 0.05 and SLStay = 0.05
+	2) Forward Selection
+	3) Backward Elimination
+	then move back to STEP 2
+	4) No new variables can enter and no old variables can exit then your model is ready
+	
+5) Score Comparison:
+	All-Possible Models
+	1) Select a criterion of goodness of fit (e.g: Akaike Criterion)
+	2) Construct all possible regression models 2n-1 total combinations
+	3) Select the one with the best criterion
+	Your Model is ready
+	e.g: 10 Columns in your data => 1023 models
