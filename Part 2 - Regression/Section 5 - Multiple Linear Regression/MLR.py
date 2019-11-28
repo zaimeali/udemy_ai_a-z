@@ -44,4 +44,61 @@ regressor.fit(X_train, y_train)
 y_pred = regressor.predict(X_test)
 
 
+# Stats for backward elimination
+import statsmodels.api as sm
+X = np.append(arr = np.ones((50, 1)).astype(int), values = X, axis = 1)
+# Optimal matrix X will only contain the independent variables that have high impact
+X_Opt = X[:, [0, 1, 2, 3, 4, 5]]
+
+regressor_OLS = sm.OLS(endog = y, exog = X_Opt).fit()
+# Step 2 Done in Above
+
+
+# Summary Function => 
+regressor_OLS.summary() # P-Value > Significant Value, so remove predictor
+
+
+
+# Now Starting again to remove some variables => [2]
+X_Opt = X[:, [0, 1, 3, 4, 5]]
+
+regressor_OLS = sm.OLS(endog = y, exog = X_Opt).fit()
+# Step 2 Done in Above
+
+# Summary Function => 
+regressor_OLS.summary() # P-Value > Significant Value, so remove predictor
+
+
+
+# Now Starting again to remove some variables => [3]
+X_Opt = X[:, [0, 3, 4, 5]]
+
+regressor_OLS = sm.OLS(endog = y, exog = X_Opt).fit()
+# Step 2 Done in Above
+
+# Summary Function => 
+regressor_OLS.summary() # P-Value > Significant Value, so remove predictor
+
+
+# Now Starting again to remove some variables => [3]
+X_Opt = X[:, [0, 3, 5]]
+
+regressor_OLS = sm.OLS(endog = y, exog = X_Opt).fit()
+# Step 2 Done in Above
+
+# Summary Function => 
+regressor_OLS.summary() # P-Value > Significant Value, so remove predictor
+
+
+# Now Starting again to remove some variables => [3]
+X_Opt = X[:, [0, 3]]
+
+regressor_OLS = sm.OLS(endog = y, exog = X_Opt).fit()
+# Step 2 Done in Above
+
+# Summary Function => 
+regressor_OLS.summary() # P-Value > Significant Value, so remove predictor
+# const in summary is columns index
+
+# According to this only one independent variable that is R&D
 
