@@ -40,5 +40,8 @@ regressor = LinearRegression()
 regressor.fit(X_train, y_train)
 
 
+# Predicting
+y_pred = regressor.predict(X_test)
+
 
 
