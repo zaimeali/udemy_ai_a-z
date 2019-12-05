@@ -26,7 +26,7 @@ SLReg.fit(X, y)
 
 # Polynomial Linear Model
 from sklearn.preprocessing import PolynomialFeatures
-PLReg = PolynomialFeatures(degree = 5) # i changed it from 2 to 3 then 3 to 4 then 4 to 5 to check blue line touches red dots
+PLReg = PolynomialFeatures(degree = 4) # i changed it from 2 to 3 then 3 to 4 then 4 to 5 to check blue line touches red dots
 # now again changing it to 4 to 5
 X_Poly = PLReg.fit_transform(X)
 # 1s column in X_poly is bcz we manually add that column in MLR but here it was add automatically
