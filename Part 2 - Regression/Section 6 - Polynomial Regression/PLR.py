@@ -53,5 +53,9 @@ plt.ylabel("Salary")
 plt.show()
 
 # Predict LR 
+SLReg.predict([[6.5]]) # here we want to check level 6.5 salary
+# [[]] bcz to convert it into 2d
 
 
+# Predict PLR
+SLReg2.predict(PLReg.fit_transform([[6.5]]))
