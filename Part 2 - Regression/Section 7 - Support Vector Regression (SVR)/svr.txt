@@ -1,0 +1,13 @@
+Building a SVR:
+	1. Collect a training set T = {X, Y}
+	2. Choose a kernel and it's parameters as well as any regularization needed
+	3. Form the correlation matrix, K which is vector
+	4. Train your machine, exactly or approximately, to get contraction coefficients
+	5. Use those coefficients, create your estimator f(X, a, x) = y*
+	
+
+In linear regression we are trying to minimize the error b/w the prediction and data.
+In SVR our goal is to make sure that errors do not exceed the threshold.
+	The Predictor lines that pass through error bars are drawn 
+	and predictor lines that don't the lines that don't pass through those bars are not 
+	acceptable bcz it means the diff of the distance
